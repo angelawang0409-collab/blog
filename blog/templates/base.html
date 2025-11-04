@@ -5,6 +5,7 @@
  <head>
     <title>My (new) blog</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
  </head>
 
  <body>
@@ -14,15 +15,15 @@
  		<h1><a href="{% url 'home' %}"> My blog</a></h1>
 	</div>
 	<div class="nav-right">
- 		<a href="{% url 'post_new' %}">add new blog post</a>
+ 		<a href="{% url 'post_new' %}">Add new blog post</a>
 	</div>
      </header>
 
      {% if user.is_authenticated %}
-     <p>Hi {{ user.username }}!</p>
+     <p class="username">Hi {{ user.username }}!</p>
      <form action="{% url 'logout' %}" method="post">
 	     {% csrf_token %}
-	     <button type="submit">Log Out</button>
+	     <button type="submit" class="logout-button">Log Out</button>
      </form>     
      {% else %}
      <p>You are not logged in.</p>
